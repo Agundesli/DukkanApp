@@ -17,27 +17,19 @@ const Login = ({ navigation }: any) => {
 
     }
 
-
     if (!loading) {
 
-        if (data) {
-            if (data !== null) {
-                console.log(data)
-                console.log("data undefined değil")
-            }
+        if (data !== null) {
+            navigation.navigate('ProductsPage');
+        }
 
-            else {
-                Alert.alert('PatikaStore', 'Something went wrong..');
+        else {
+            if(error){
+                Alert.alert('HATA', 'Kullanıcı Adı veya Şifre Yanlış');
             }
         }
     }
 
-
-    useEffect(() => {
-        if (data !== null) {
-            navigation.navigate('ProductsPage');
-        }
-    }, [data,navigation]);
 
 
 
